@@ -10,6 +10,7 @@ router.get('/',  async (req , res)=>{
     try {
         const proudects = new Proudect()
         res.render('addproudect', {
+            layout: false,
             proudects: proudects
            
          }) 
