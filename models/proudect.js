@@ -13,6 +13,18 @@ const ProudectSchema = new mongoose.Schema({
 
     },
 
+    proudectDetials: {
+        type: String,
+        required: true
+
+    },
+
+    proudectProudection: {
+        type: String,
+        required: true
+
+    },
+
     proudectImage : {
         type: Buffer,
         required: true
@@ -31,6 +43,24 @@ const ProudectSchema = new mongoose.Schema({
 
     },
 
+    proudectPdf : {
+        type: Buffer,
+        required: true
+
+    },
+
+    proudectPdfType : {
+        type: String,
+        required: true
+
+    },
+
+    tags : {
+        type: String,
+        required: true
+
+    },
+
 })
 
 ProudectSchema.virtual('proudectImagePath').get(function() {
@@ -38,5 +68,7 @@ ProudectSchema.virtual('proudectImagePath').get(function() {
       return `data:${this.proudectImageType};charset=utf-8;base64,${this.proudectImage.toString('base64')}`
     }
   })
+
+
 
 module.exports = mongoose.model('Proudect', ProudectSchema)
